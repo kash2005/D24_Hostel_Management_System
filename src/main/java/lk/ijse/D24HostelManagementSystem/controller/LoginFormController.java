@@ -114,4 +114,17 @@ public class LoginFormController implements Initializable {
         stage.centerOnScreen();
         stage.show();
     }
+
+    @FXML
+    void forgetPasswordOnAction(ActionEvent event) throws IOException {
+        AnchorPane load = FXMLLoader.load(getClass().getResource("/lk.ijse.D24HostelManagementSystem/view/forgetPasswordForm.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(load));
+        Stage stage1 = (Stage) root.getScene().getWindow();
+        stage1.close();
+        stage.setTitle("D24 Hostel Management System - Forget password Page");
+        stage.centerOnScreen();
+        stage.show();
+    }
+
 }

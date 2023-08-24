@@ -75,7 +75,7 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <JFXButton layoutX="634.0" layoutY="331.0" text="Forget Password ?" textFill="#0053ff">
+      <JFXButton layoutX="634.0" layoutY="331.0" onAction="#forgetPasswordOnAction" text="Forget Password ?" textFill="#0053ff">
          <font>
             <Font size="11.0" />
          </font>
