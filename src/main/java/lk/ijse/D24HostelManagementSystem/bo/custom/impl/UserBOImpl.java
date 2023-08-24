@@ -13,4 +13,9 @@ public class UserBOImpl implements UserBO {
         userDAO.check(name,password,password1);
         return true;
     }
+
+    @Override
+    public String generateNextUserId() {
+        return userDAO.generateNextId();
+    }
 }

@@ -105,7 +105,7 @@ public class LoginFormController implements Initializable {
 
     @FXML
     void signUpBtnOnAction(ActionEvent event) throws IOException {
-        AnchorPane load = FXMLLoader.load(getClass().getResource("/lk.ijse.D24HostelManagementSystem/view/signUpForm.fxml"));
+        AnchorPane load = FXMLLoader.load(getClass().getResource("/lk.ijse.D24HostelManagementSystem/view/registerForm.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(load));
         Stage stage1 = (Stage) root.getScene().getWindow();

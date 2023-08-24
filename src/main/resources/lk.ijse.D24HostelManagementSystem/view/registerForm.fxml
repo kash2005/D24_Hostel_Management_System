@@ -7,29 +7,29 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="638.0" prefWidth="334.0" style="-fx-background-color: #FBF7F3;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.D24HostelManagementSystem.controller.SignUpFormController">
+<AnchorPane fx:id="root" prefHeight="642.0" prefWidth="334.0" style="-fx-background-color: #FBF7F3;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.D24HostelManagementSystem.controller.RegisterFormController">
    <children>
       <Label layoutX="15.0" layoutY="27.0" prefHeight="53.0" prefWidth="310.0" text="Register as a User" textFill="#765827">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
       </Label>
-      <JFXTextField focusColor="#06acff" labelFloat="true" layoutX="49.0" layoutY="123.0" promptText="User Name" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
+      <JFXTextField fx:id="txtUserName" focusColor="#06acff" labelFloat="true" layoutX="49.0" layoutY="203.0" onAction="#userNameOnAction" promptText="User Name" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
          <font>
             <Font size="20.0" />
          </font>
       </JFXTextField>
-      <JFXPasswordField focusColor="#06acff" labelFloat="true" layoutX="49.0" layoutY="201.0" promptText="Password" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
+      <JFXPasswordField fx:id="passwordId" focusColor="#06acff" labelFloat="true" layoutX="49.0" layoutY="281.0" onAction="#passwordOnAction" promptText="Password" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
          <font>
             <Font size="20.0" />
          </font>
       </JFXPasswordField>
-      <JFXPasswordField focusColor="#06acff" labelFloat="true" layoutX="49.0" layoutY="277.0" promptText="Repeat-Password" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
+      <JFXPasswordField fx:id="repeatPasswordId" focusColor="#06acff" labelFloat="true" layoutX="49.0" layoutY="357.0" onAction="#repeatPasswordOnAction" promptText="Repeat-Password" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
          <font>
             <Font size="20.0" />
          </font>
       </JFXPasswordField>
-      <JFXTextField focusColor="#06acff" labelFloat="true" layoutX="49.0" layoutY="355.0" promptText="Password Hint" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
+      <JFXTextField fx:id="passwordHintId" focusColor="#06acff" labelFloat="true" layoutX="49.0" layoutY="435.0" onAction="#passwordHintOnAction" promptText="Password Hint" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
          <font>
             <Font size="20.0" />
          </font>
@@ -44,15 +44,15 @@
             <Font size="20.0" />
          </font>
       </JFXButton>
-      <JFXTextField focusColor="#06acff" labelFloat="true" layoutX="54.0" layoutY="437.0" promptText="Password Hint" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </JFXTextField>
       <Label layoutX="253.0" layoutY="593.0" opacity="0.59" prefHeight="30.0" prefWidth="53.0" text="\@2023" textFill="#765827">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
+      <JFXTextField fx:id="txtUserId" focusColor="#06acff" labelFloat="true" layoutX="53.0" layoutY="130.0" onAction="#userIdOnAction" promptText="User Id" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXTextField>
    </children>
 </AnchorPane>
