@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1500.0" style="-fx-background-color: #FBF7F3;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.D24HostelManagementSystem.controller.DashboardFormController">
+   <children>
+      <AnchorPane fx:id="root" layoutX="401.0" prefHeight="800.0" prefWidth="1100.0" />
+      <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="83.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/Screenshot%202023-08-20%20194154.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="197.0" layoutY="40.0" text="D24" textFill="#765827">
+         <font>
+            <Font name="Felix Titling" size="60.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="86.0" layoutY="173.0" onAction="#dashboardBtnOnAction" text="   Dashboard" textFill="#765827">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="40.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/icons8-bar-chart-100.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton layoutX="86.0" layoutY="249.0" onAction="#studentBtnOnAction" text="   Student" textFill="#765827">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="40.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/icons8-employees-100.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton layoutX="89.0" layoutY="329.0" onAction="#roomBtnOnAction" text="   Room" textFill="#765827">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="40.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/icons8-room-100.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton layoutX="90.0" layoutY="470.0" onAction="#settingBtnOnAction" text="   Settings" textFill="#765827">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="40.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/icons8-advanced-search-100.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton layoutX="87.0" layoutY="400.0" onAction="#reservationBtnOnAction" text="   Reservation" textFill="#765827">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="40.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/icons8-reservation-100.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton layoutX="102.0" layoutY="674.0" onAction="#signoutBtnOnAction" text="   Signout" textFill="#765827">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="40.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/icons8-logout-64.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+   </children>
+</AnchorPane>

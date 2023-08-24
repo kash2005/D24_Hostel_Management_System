@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #FBF7F3;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.D24HostelManagementSystem.controller.LoginFormController">
+   <children>
+      <JFXButton fx:id="loginBtn" layoutX="512.0" layoutY="380.0" onAction="#loginBtnOnAction" prefHeight="44.0" prefWidth="225.0" style="-fx-background-color: #765827; -fx-background-radius: 10;" text="Sign  in" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField fx:id="txtPasswordId" focusColor="#06acff" labelFloat="true" layoutX="510.0" layoutY="275.0" onAction="#txtPasswordOnAction" promptText="Password" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXTextField>
+      <JFXPasswordField fx:id="passwordTextId" focusColor="#06acff" labelFloat="true" layoutX="510.0" layoutY="275.0" onAction="#passwordTextOnAction" promptText="Password" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXPasswordField>
+      <JFXTextField fx:id="userNameTextId" focusColor="#06acff" labelFloat="true" layoutX="512.0" layoutY="189.0" onAction="#userNameTextOnAction" promptText="User Name" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXTextField>
+      <ImageView fx:id="imgShowId" fitHeight="30.0" fitWidth="31.0" layoutX="696.0" layoutY="286.0" onMouseClicked="#showPasswordOnMouseClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/icons8-eye-90%20(1).png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgHideId" fitHeight="33.0" fitWidth="31.0" layoutX="695.0" layoutY="285.0" onMouseClicked="#imgHidePasswordOnMouseClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/icons8-invisible-90.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="609.0" fitWidth="458.0" layoutX="-1.0" layoutY="-1.0" pickOnBounds="true">
+         <image>
+            <Image url="@../image/Screenshot%202023-08-16%20224956.png" />
+         </image>
+         <effect>
+            <BoxBlur />
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="23.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/Screenshot_2023-08-17_100924-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="51.0" layoutY="369.0" text="Let's login" textFill="WHITE">
+         <font>
+            <Font name="Felix Titling" size="60.0" />
+         </font>
+      </Label>
+      <Label layoutX="63.0" layoutY="459.0" text="To system" textFill="WHITE">
+         <font>
+            <Font name="Felix Titling" size="60.0" />
+         </font>
+      </Label>
+      <Label layoutX="500.0" layoutY="57.0" prefHeight="53.0" prefWidth="256.0" text="Log in" textFill="#765827">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="502.0" layoutY="106.0" prefHeight="53.0" prefWidth="264.0" text="Welcome back! Please enter details." textFill="#765827">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="634.0" layoutY="331.0" text="Forget Password ?" textFill="#0053ff">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="524.0" layoutY="433.0" prefHeight="53.0" prefWidth="215.0" text="Don't have an user account ?" textFill="#765827">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="524.0" layoutY="467.0" prefHeight="30.0" prefWidth="169.0" text="Please register as a user" textFill="#765827">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="692.0" layoutY="471.0" onAction="#signUpBtnOnAction" text="Sign up" textFill="#0053ff">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="730.0" layoutY="557.0" opacity="0.59" prefHeight="30.0" prefWidth="53.0" text="\@2023" textFill="#765827">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

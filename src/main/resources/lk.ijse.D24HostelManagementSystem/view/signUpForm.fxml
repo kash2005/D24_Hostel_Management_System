@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="root" prefHeight="504.0" prefWidth="334.0" style="-fx-background-color: #FBF7F3;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.D24HostelManagementSystem.controller.SignUpFormController">
+   <children>
+      <Label layoutX="15.0" layoutY="27.0" prefHeight="53.0" prefWidth="310.0" text="Register as a User" textFill="#765827">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <JFXTextField focusColor="#06acff" labelFloat="true" layoutX="49.0" layoutY="123.0" promptText="User Name" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXTextField>
+      <JFXPasswordField focusColor="#06acff" labelFloat="true" layoutX="49.0" layoutY="201.0" promptText="Password" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXPasswordField>
+      <JFXPasswordField focusColor="#06acff" labelFloat="true" layoutX="49.0" layoutY="277.0" promptText="Repeat-Password" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXPasswordField>
+      <JFXTextField focusColor="#06acff" labelFloat="true" layoutX="49.0" layoutY="355.0" promptText="Password Hint" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton layoutX="160.0" layoutY="435.0" prefHeight="44.0" prefWidth="115.0" style="-fx-background-color: #765827; -fx-background-radius: 10;" text="Register" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="53.0" layoutY="435.0" onAction="#backToLoginBtnOnAction" opacity="0.64" prefHeight="44.0" prefWidth="78.0" style="-fx-background-color: #765827; -fx-background-radius: 10;" text="Back" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

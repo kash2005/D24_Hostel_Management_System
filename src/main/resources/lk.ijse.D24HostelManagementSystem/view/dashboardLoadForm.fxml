@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="800.0" prefWidth="1100.0" style="-fx-background-color: #FBF7F3;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.D24HostelManagementSystem.controller.DashboardLoadFormController">
+   <children>
+      <Pane layoutX="13.0" layoutY="75.0" prefHeight="682.0" prefWidth="447.0" style="-fx-background-color: white;">
+         <children>
+            <Label layoutX="43.0" layoutY="28.0" prefHeight="35.0" prefWidth="161.0" text="Today details" textFill="#765827">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="44.0" layoutY="62.0" opacity="0.58" prefHeight="35.0" prefWidth="161.0" text="August 21st 2023" textFill="#765827">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="44.0" layoutY="125.0" prefHeight="35.0" prefWidth="374.0" text="Reminder Student Payments " textFill="#765827">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Label layoutX="44.0" layoutY="160.0" prefHeight="35.0" prefWidth="374.0" text="Who Have To Pay......." textFill="#765827">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Label layoutX="121.0" layoutY="213.0" opacity="0.58" prefHeight="35.0" prefWidth="87.0" text="key money" textFill="#765827">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Circle fill="#fbf7f3" layoutX="107.0" layoutY="232.0" radius="5.0" stroke="#765827" strokeType="INSIDE" />
+            <ImageView fitHeight="167.0" fitWidth="357.0" layoutX="43.0" layoutY="284.0" pickOnBounds="true" smooth="false">
+               <image>
+                  <Image url="@../image/WhatsApp%20Image%202023-08-21%20at%2023.32.05.jpg" />
+               </image>
+            </ImageView>
+            <JFXButton layoutX="88.0" layoutY="392.0" onAction="#unpaidViewBtnOnAction" style="-fx-border-color: #765827;" text="view" textFill="#765827">
+               <effect>
+                  <Glow level="1.0">
+                     <input>
+                        <Lighting diffuseConstant="2.0" specularConstant="2.0" specularExponent="40.0" surfaceScale="10.0">
+                           <bumpInput>
+                              <DropShadow color="#765827" height="248.01" radius="125.2525" spread="1.0" width="255.0" />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </input>
+                  </Glow>
+               </effect>
+            </JFXButton>
+            <Label layoutX="70.0" layoutY="295.0" prefHeight="35.0" prefWidth="206.0" text="Un-paid students" textFill="#765827">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Label>
+            <Label layoutX="75.0" layoutY="320.0" opacity="0.86" prefHeight="35.0" prefWidth="161.0" text="see details" textFill="#765827">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="195.0" fitWidth="195.0" layoutX="222.0" layoutY="479.0" pickOnBounds="true" smooth="false">
+               <image>
+                  <Image url="@../image/WhatsApp%20Image%202023-08-21%20at%2023.54%201.png" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="184.0" layoutY="475.0" prefHeight="195.0" prefWidth="111.0" style="-fx-background-color: white;" />
+            <ImageView fitHeight="195.0" fitWidth="195.0" layoutX="26.0" layoutY="479.0" pickOnBounds="true" smooth="false">
+               <image>
+                  <Image url="@../image/WhatsApp%20Image%202023-08-21%20at%2023.54%201.png" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="139.0" layoutY="479.0" prefHeight="195.0" prefWidth="111.0" style="-fx-background-color: white;">
+               <children>
+                  <Label layoutX="35.0" layoutY="75.0" prefHeight="35.0" prefWidth="87.0" text="Reports" textFill="#765827">
+                     <font>
+                        <Font name="System Bold" size="23.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <JFXButton layoutX="62.0" layoutY="606.0" style="-fx-border-color: #765827;" text="view" textFill="#765827">
+               <effect>
+                  <Glow level="1.0">
+                     <input>
+                        <Lighting diffuseConstant="2.0" specularConstant="2.0" specularExponent="40.0" surfaceScale="10.0">
+                           <bumpInput>
+                              <DropShadow color="#765827" height="248.01" radius="125.2525" spread="1.0" width="255.0" />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </input>
+                  </Glow>
+               </effect>
+            </JFXButton>
+            <JFXButton layoutX="314.0" layoutY="606.0" style="-fx-border-color: #765827;" text="view" textFill="#765827">
+               <effect>
+                  <Glow level="1.0">
+                     <input>
+                        <Lighting diffuseConstant="2.0" specularConstant="2.0" specularExponent="40.0" surfaceScale="10.0">
+                           <bumpInput>
+                              <DropShadow color="#765827" height="248.01" radius="125.2525" spread="1.0" width="255.0" />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </input>
+                  </Glow>
+               </effect>
+            </JFXButton>
+            <Label layoutX="38.0" layoutY="526.0" prefHeight="35.0" prefWidth="98.0" text="Student" textFill="#765827">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="328.0" layoutY="526.0" prefHeight="35.0" prefWidth="73.0" text="Room" textFill="#765827">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <ImageView fitHeight="104.0" fitWidth="87.0" layoutX="936.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/icons8-user-100%20(1).png" />
+         </image>
+      </ImageView>
+      <Line endX="44.0" endY="625.6666870117188" layoutX="818.0" layoutY="122.0" opacity="0.4" startX="44.0" startY="-38.33333206176758" />
+      <Label layoutX="950.0" layoutY="196.0" opacity="0.54" prefHeight="34.0" prefWidth="73.0" text="Admin" textFill="#765827">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="927.0" layoutY="166.0" prefHeight="34.0" prefWidth="121.0" text="Mr.Kashmi" textFill="#765827">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imgSettingId" fitHeight="65.0" fitWidth="65.0" layoutX="963.0" layoutY="693.0" onMouseClicked="#imgSettingOnMouseClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/icons8-setting-96.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="512.0" layoutY="85.0" prefHeight="34.0" prefWidth="121.0" text="Monthly" textFill="#765827">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fbf7f3" height="87.0" layoutX="504.0" layoutY="148.0" opacity="0.67" stroke="#765827" strokeType="INSIDE" width="326.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fbf7f3" height="87.0" layoutX="505.0" layoutY="274.0" opacity="0.67" stroke="#765827" strokeType="INSIDE" width="326.0" />
+      <Label layoutX="537.0" layoutY="185.0" prefHeight="35.0" prefWidth="188.0" text="Total Rooms" textFill="#765827">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="537.0" layoutY="312.0" prefHeight="35.0" prefWidth="188.0" text="Available Rooms" textFill="#765827">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="537.0" layoutY="153.0" opacity="0.58" prefHeight="35.0" prefWidth="161.0" text="This month analysis" textFill="#765827">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fbf7f3" height="87.0" layoutX="505.0" layoutY="395.0" opacity="0.67" stroke="#765827" strokeType="INSIDE" width="326.0" />
+      <Label layoutX="537.0" layoutY="435.0" prefHeight="35.0" prefWidth="188.0" text="Reserve Rooms" textFill="#765827">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="537.0" layoutY="280.0" opacity="0.58" prefHeight="35.0" prefWidth="161.0" text="This month analysis" textFill="#765827">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="539.0" layoutY="401.0" opacity="0.58" prefHeight="35.0" prefWidth="161.0" text="This month analysis" textFill="#765827">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="748.0" layoutY="287.0" opacity="0.59" prefHeight="35.0" prefWidth="47.0" text="12" textFill="#765827">
+         <font>
+            <Font size="42.0" />
+         </font>
+      </Label>
+      <Label layoutX="748.0" layoutY="160.0" opacity="0.59" prefHeight="35.0" prefWidth="47.0" text="54" textFill="#765827">
+         <font>
+            <Font size="42.0" />
+         </font>
+      </Label>
+      <Label layoutX="748.0" layoutY="407.0" opacity="0.59" prefHeight="35.0" prefWidth="47.0" text="42" textFill="#765827">
+         <font>
+            <Font size="42.0" />
+         </font>
+      </Label>
+      <Label layoutX="512.0" layoutY="519.0" prefHeight="34.0" prefWidth="121.0" text="Reminder" textFill="#765827">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="1.0" layoutY="23.0" opacity="0.91" prefHeight="36.0" prefWidth="545.0" text="Welcome To D24 Hostel Management System" textFill="#765827">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <BarChart layoutX="512.0" layoutY="584.0" prefHeight="174.0" prefWidth="305.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <Label layoutX="1017.0" layoutY="759.0" opacity="0.59" prefHeight="30.0" prefWidth="53.0" text="\@2023" textFill="#765827">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
