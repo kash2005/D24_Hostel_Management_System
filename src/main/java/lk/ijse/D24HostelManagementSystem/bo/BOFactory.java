@@ -6,7 +6,6 @@ public class BOFactory {
     private static BOFactory boFactory;
 
     private BOFactory(){
-
     }
 
     public static BOFactory getBoFactory(){

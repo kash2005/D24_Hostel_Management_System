@@ -39,7 +39,7 @@
             <Font size="20.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="53.0" layoutY="587.0" onAction="#backToLoginBtnOnAction" opacity="0.64" prefHeight="44.0" prefWidth="78.0" style="-fx-background-color: #765827; -fx-background-radius: 10;" text="Back" textFill="WHITE">
+      <JFXButton layoutX="53.0" layoutY="587.0" onAction="#backToLoginBtnOnAction" opacity="0.88" prefHeight="44.0" prefWidth="78.0" style="-fx-background-color: #765827; -fx-background-radius: 10;" text="Back" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
