@@ -15,8 +15,9 @@ public class UserDAOImpl implements UserDAO {
     public boolean check(String name, String password, String password1) {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        List<User> userList = session.createNativeQuery("SELECT * FROM User WHERE userName = ?",User.class).setParameter(1,name).getResultList();
-        for (User user: userList) {
+
+        List<User> userList = session.createNativeQuery("SELECT * FROM User WHERE userName = ?", User.class).setParameter(1, name).getResultList();
+        for (User user:userList) {
             transaction.commit();
             session.close();
             if (user.getUserPassword().equals(password) || user.getUserPassword().equals(password1)){
@@ -45,4 +46,17 @@ public class UserDAOImpl implements UserDAO {
             return "U00-001";
         }
     }
+
+    @Override
+    public boolean save(User user) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        session.persist(user);
+        transaction.commit();
+        session.close();
+
+        return true;
+    }
+
 }

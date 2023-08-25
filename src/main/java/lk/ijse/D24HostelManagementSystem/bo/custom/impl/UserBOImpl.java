@@ -3,6 +3,8 @@ package lk.ijse.D24HostelManagementSystem.bo.custom.impl;
 import lk.ijse.D24HostelManagementSystem.bo.custom.UserBO;
 import lk.ijse.D24HostelManagementSystem.dao.DAOFactory;
 import lk.ijse.D24HostelManagementSystem.dao.custom.UserDAO;
+import lk.ijse.D24HostelManagementSystem.dto.UserDTO;
+import lk.ijse.D24HostelManagementSystem.entity.User;
 
 public class UserBOImpl implements UserBO {
 
@@ -10,12 +12,17 @@ public class UserBOImpl implements UserBO {
 
     @Override
     public boolean checkUser(String name, String password, String password1) {
-        userDAO.check(name,password,password1);
-        return true;
+       return userDAO.check(name,password,password1);
+
     }
 
     @Override
     public String generateNextUserId() {
         return userDAO.generateNextId();
+    }
+
+    @Override
+    public boolean saveUser(UserDTO userDTO) {
+        return userDAO.save(new User(userDTO.getUserId(),userDTO.getUserName(),userDTO.getUserPassword(),userDTO.getUserPasswordHint(),userDTO.getUserEmail()));
     }
 }
