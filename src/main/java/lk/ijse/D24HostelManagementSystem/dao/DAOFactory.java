@@ -1,5 +1,6 @@
 package lk.ijse.D24HostelManagementSystem.dao;
 
+import lk.ijse.D24HostelManagementSystem.dao.custom.impl.RoomDAOImpl;
 import lk.ijse.D24HostelManagementSystem.dao.custom.impl.StudentDAOImpl;
 import lk.ijse.D24HostelManagementSystem.dao.custom.impl.UserDAOImpl;
 
@@ -14,7 +15,7 @@ public class DAOFactory {
     }
 
     public enum DAOTypes{
-        USER,STUDENT
+        USER,STUDENT,ROOM
     }
 
     public SupperDAO getDAO(DAOTypes daoTypes){
@@ -23,6 +24,8 @@ public class DAOFactory {
                 return new UserDAOImpl();
             case STUDENT:
                 return new StudentDAOImpl();
+            case ROOM:
+                return new RoomDAOImpl();
             default:
                 return null;
         }

@@ -2,6 +2,7 @@ package lk.ijse.D24HostelManagementSystem.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,6 +17,12 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @ToString
+
+@NamedQuery(
+        name = "Room.findLatestUserId",
+        query = "SELECT r.roomTypeId FROM Room r ORDER BY r.roomTypeId DESC"
+)
+
 public class Room {
     @Id
     private String roomTypeId;

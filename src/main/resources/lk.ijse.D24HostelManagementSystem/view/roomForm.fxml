@@ -56,31 +56,31 @@
                   <Image url="@../image/icons8-room-100.png" />
                </image>
             </ImageView>
-            <JFXTextField focusColor="#06acff" labelFloat="true" layoutX="15.0" layoutY="107.0" promptText="Room Id" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
+            <JFXTextField fx:id="txtRoomId" focusColor="#06acff" labelFloat="true" layoutX="15.0" layoutY="107.0" onAction="#txtRoomOnAction" promptText="Room Id" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
                <font>
                   <Font size="20.0" />
                </font>
             </JFXTextField>
-            <JFXTextField focusColor="#06acff" labelFloat="true" layoutX="15.0" layoutY="353.0" promptText="Key Money" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
+            <JFXTextField fx:id="txtKeyMoneyId" focusColor="#06acff" labelFloat="true" layoutX="15.0" layoutY="353.0" onAction="#txtKeyMoneyOnAction" promptText="Key Money" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
                <font>
                   <Font size="20.0" />
                </font>
             </JFXTextField>
-            <JFXTextField focusColor="#06acff" labelFloat="true" layoutX="14.0" layoutY="457.0" promptText="Qty" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
+            <JFXTextField fx:id="txtQtyId" focusColor="#06acff" labelFloat="true" layoutX="14.0" layoutY="457.0" onAction="#txtQtyOnAction" promptText="Qty" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
                <font>
                   <Font size="20.0" />
                </font>
             </JFXTextField>
-            <ComboBox layoutX="17.0" layoutY="237.0" prefHeight="52.0" prefWidth="222.0" promptText="Type" style="-fx-background-color: #FBF7F3; -fx-border-color: #765827;" />
+            <ComboBox fx:id="comboTypeId" layoutX="17.0" layoutY="237.0" onAction="#comboTypeOnAction" prefHeight="52.0" prefWidth="222.0" promptText="Type" style="-fx-background-color: #FBF7F3; -fx-border-color: #765827;" />
          </children>
       </Pane>
       <Pane layoutX="-212.0" layoutY="60.0" prefHeight="740.0" prefWidth="232.0" style="-fx-background-color: #FBF7F3;" />
-      <JFXButton layoutX="294.0" layoutY="385.0" prefHeight="44.0" prefWidth="145.0" style="-fx-background-color: #765827; -fx-background-radius: 10;" text="Save" textFill="WHITE">
+      <JFXButton fx:id="btnSave" layoutX="294.0" layoutY="385.0" onAction="#btnSaveOnAction" prefHeight="44.0" prefWidth="145.0" style="-fx-background-color: #765827; -fx-background-radius: 10;" text="Save" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="294.0" layoutY="476.0" prefHeight="44.0" prefWidth="145.0" style="-fx-background-color: red mat; -fx-background-radius: 10;" text="Delete" textFill="WHITE">
+      <JFXButton fx:id="btnDelete" layoutX="294.0" layoutY="476.0" onAction="#btnDeleteOnAction" prefHeight="44.0" prefWidth="145.0" style="-fx-background-color: red mat; -fx-background-radius: 10;" text="Delete" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>

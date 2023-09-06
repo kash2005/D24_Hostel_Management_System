@@ -87,8 +87,8 @@ public class StudentFormController implements Initializable {
             new Alert(Alert.AlertType.ERROR, "Select Student first!");
         }
 
-        btnSave.setDisable(false);
-        btnDelete.setDisable(true);
+//        btnSave.setDisable(false);
+//        btnDelete.setDisable(true);
     }
 
     private void refreshTable() {
