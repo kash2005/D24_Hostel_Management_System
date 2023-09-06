@@ -1,6 +1,7 @@
 package lk.ijse.D24HostelManagementSystem.dao.custom.impl;
 
 import lk.ijse.D24HostelManagementSystem.dao.custom.UserDAO;
+import lk.ijse.D24HostelManagementSystem.entity.Student;
 import lk.ijse.D24HostelManagementSystem.entity.User;
 import lk.ijse.D24HostelManagementSystem.util.FactoryConfiguration;
 import org.hibernate.Internal;
@@ -59,4 +60,18 @@ public class UserDAOImpl implements UserDAO {
         return true;
     }
 
+    @Override
+    public List<User> getAll() {
+        return null;
+    }
+
+    @Override
+    public boolean delete(String id) {
+        return false;
+    }
+
+    @Override
+    public User search(String id) {
+        return null;
+    }
 }
