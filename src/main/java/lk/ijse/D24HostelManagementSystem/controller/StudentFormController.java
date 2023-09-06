@@ -115,22 +115,33 @@ public class StudentFormController implements Initializable {
 
     @FXML
     void saveBtnOnAction(ActionEvent event) {
-        StudentDTO studentDTO = new StudentDTO();
-        studentDTO.setStudentId(txtStudentId.getText());
-        studentDTO.setStudentName(txtStudentNameId.getText());
-        studentDTO.setStudentAddress(txtStudentAddressId.getText());
-        studentDTO.setStudentContact(txtStudentContactId.getText());
-        studentDTO.setDate(Date.valueOf(dob.getValue()));
-        studentDTO.setGender(maleBtnId.isSelected() ? "Male" : "Female");
 
-        boolean isSaved =studentBO.saveStudent(studentDTO);
+            StudentDTO studentDTO = new StudentDTO();
+            studentDTO.setStudentId(txtStudentId.getText());
+            studentDTO.setStudentName(txtStudentNameId.getText());
+            studentDTO.setStudentAddress(txtStudentAddressId.getText());
+            studentDTO.setStudentContact(txtStudentContactId.getText());
+            studentDTO.setDate(Date.valueOf(dob.getValue()));
+            studentDTO.setGender(maleBtnId.isSelected() ? "Male" : "Female");
+        if (btnSave.getText().equals("Save")) {
+            boolean isSaved = studentBO.saveStudent(studentDTO);
 
-        if (isSaved){
-            new Alert(Alert.AlertType.CONFIRMATION,"Student saved!").show();
-            getAll();
-            clearAll();
-        }else {
-            new Alert(Alert.AlertType.ERROR,"student not saved!").show();
+            if (isSaved) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Student saved!").show();
+                getAll();
+                clearAll();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "student not saved!").show();
+            }
+        }else if (btnSave.getText().equals("Update")){
+            boolean isUpdated = studentBO.updateStudent(studentDTO);
+            if (isUpdated){
+                new Alert(Alert.AlertType.CONFIRMATION,"Student updated!").show();
+                getAll();
+                clearAll();
+            }else {
+                new Alert(Alert.AlertType.ERROR,"Student not updated!").show();
+            }
         }
     }
 
@@ -204,6 +215,8 @@ public class StudentFormController implements Initializable {
         StudentDTO studentDTO = studentBO.searchStudent(studentId);
         if (studentDTO != null){
             fillDate(studentDTO);
+            btnSave.setText("Update");
+            btnSave.setStyle("-fx-background-color: #379237; -fx-background-radius: 10;");
         }else {
             new Alert(Alert.AlertType.WARNING,"W").show();
         }
@@ -215,8 +228,13 @@ public class StudentFormController implements Initializable {
         txtStudentNameId.setText(studentDTO.getStudentName());
         txtStudentAddressId.setText(studentDTO.getStudentAddress());
         txtStudentContactId.setText(studentDTO.getStudentContact());
-//        dob.setValue(studentDTO.getDate());
-        maleBtnId.setSelected(true);
-        femaleBtnId.setSelected(true);
+        dob.setValue(studentDTO.getDate().toLocalDate());
+        if ("Male".equals(studentDTO.getGender())) {
+            maleBtnId.setSelected(true);
+            femaleBtnId.setSelected(false);
+        } else if ("Female".equals(studentDTO.getGender())) {
+            femaleBtnId.setSelected(true);
+            maleBtnId.setSelected(false);
+        }
     }
 }

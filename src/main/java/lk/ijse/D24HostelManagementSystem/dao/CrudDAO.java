@@ -19,4 +19,6 @@ public interface CrudDAO<T> extends SupperDAO{
 
 
     public T search(String id);
+
+    public boolean update(T entity);
 }

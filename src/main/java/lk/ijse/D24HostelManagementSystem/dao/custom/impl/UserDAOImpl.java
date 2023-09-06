@@ -74,4 +74,9 @@ public class UserDAOImpl implements UserDAO {
     public User search(String id) {
         return null;
     }
+
+    @Override
+    public boolean update(User entity) {
+        return false;
+    }
 }
