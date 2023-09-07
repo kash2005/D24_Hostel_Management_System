@@ -1,9 +1,15 @@
 package lk.ijse.D24HostelManagementSystem.bo.custom.impl;
 
-import lk.ijse.D24HostelManagementSystem.bo.SuperBO;
 import lk.ijse.D24HostelManagementSystem.bo.custom.RoomBO;
 import lk.ijse.D24HostelManagementSystem.dao.DAOFactory;
 import lk.ijse.D24HostelManagementSystem.dao.custom.RoomDAO;
+import lk.ijse.D24HostelManagementSystem.dto.RoomDTO;
+import lk.ijse.D24HostelManagementSystem.dto.StudentDTO;
+import lk.ijse.D24HostelManagementSystem.entity.Room;
+import lk.ijse.D24HostelManagementSystem.entity.Student;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class RoomBOImpl implements RoomBO {
 
@@ -11,5 +17,56 @@ public class RoomBOImpl implements RoomBO {
     @Override
     public String generateNextRoomId() {
         return roomDAO.generateNextId();
+    }
+
+    @Override
+    public boolean saveRoom(RoomDTO roomDTO) {
+        Room room = new Room();
+        room.setRoomTypeId(roomDTO.getRoomTypeId());
+        room.setType(roomDTO.getType());
+        room.setKeyMoney(roomDTO.getKeyMoney());
+        room.setQty(roomDTO.getQty());
+        return roomDAO.save(room);
+    }
+
+    @Override
+    public boolean updateRoom(RoomDTO roomDTO) {
+        Room room = new Room();
+        room.setRoomTypeId(roomDTO.getRoomTypeId());
+        room.setType(roomDTO.getType());
+        room.setKeyMoney(roomDTO.getKeyMoney());
+        room.setQty(roomDTO.getQty());
+        return roomDAO.update(room);
+    }
+
+    @Override
+    public List<RoomDTO> getAllRoom() {
+        List<RoomDTO> roomsDTOArrayList = new ArrayList<>();
+        List<Room> roomsArrayList = roomDAO.getAll();
+        for (Room room:roomsArrayList) {
+            RoomDTO roomDTO = new RoomDTO();
+            roomDTO.setRoomTypeId(room.getRoomTypeId());
+            roomDTO.setType(room.getType());
+            roomDTO.setKeyMoney(room.getKeyMoney());
+            roomDTO.setQty(room.getQty());
+            roomsDTOArrayList.add(roomDTO);
+        }
+        return roomsDTOArrayList;
+    }
+
+    @Override
+    public boolean deleteRoom(RoomDTO roomDTO) {
+        Room room = new Room();
+        room.setRoomTypeId(roomDTO.getRoomTypeId());
+        room.setType(roomDTO.getType());
+        room.setKeyMoney(roomDTO.getKeyMoney());
+        room.setQty(roomDTO.getQty());
+        return roomDAO.delete(room);
+    }
+
+    @Override
+    public RoomDTO searchRoom(String roomId) {
+        Room room = roomDAO.search(roomId);
+        return new RoomDTO(room.getRoomTypeId(),room.getType(),room.getKeyMoney(),room.getQty());
     }
 }

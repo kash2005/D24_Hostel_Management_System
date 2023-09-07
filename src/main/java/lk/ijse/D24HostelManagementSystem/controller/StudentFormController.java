@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import lk.ijse.D24HostelManagementSystem.bo.BOFactory;
 import lk.ijse.D24HostelManagementSystem.bo.custom.StudentBO;
 import lk.ijse.D24HostelManagementSystem.dto.StudentDTO;
@@ -77,18 +78,52 @@ public class StudentFormController implements Initializable {
 
     @FXML
     private void deleteBtnOnAction(ActionEvent event) {
-        StudentTM studentTM =studentTbl.getSelectionModel().getSelectedItem();
-        if (studentTM != null){
-            studentBO.deleteStudent(studentTM.getStudentId());
+//       StudentTM studentTM =studentTbl.getSelectionModel().getSelectedItem();
+        StudentDTO studentDTO = new StudentDTO();
+        studentDTO.setStudentId(txtStudentId.getText());
+        studentDTO.setStudentName(txtStudentNameId.getText());
+        studentDTO.setStudentAddress(txtStudentAddressId.getText());
+        studentDTO.setStudentContact(txtStudentContactId.getText());
+        studentDTO.setDate(Date.valueOf(dob.getValue()));
+        studentDTO.setGender(maleBtnId.isSelected() ? "Male" : "Female");
+//        if (studentTM != null){
+            studentBO.deleteStudent(studentDTO);
             new Alert(Alert.AlertType.INFORMATION, "Student Deleted!").show();
             clearAll();
             refreshTable();
-        }else {
-            new Alert(Alert.AlertType.ERROR, "Select Student first!");
-        }
+            btnSave.setText("Save");
+            btnSave.setStyle("-fx-background-color:  #765827; -fx-background-radius: 10;");
+//        }else {
+//            new Alert(Alert.AlertType.ERROR, "Select Student first!");
+//        }
 
 //        btnSave.setDisable(false);
 //        btnDelete.setDisable(true);
+    }
+
+    @FXML
+    void studentTblOnMouseClicked(MouseEvent event) {
+        StudentTM selectedItem = studentTbl.getSelectionModel().getSelectedItem();
+        try {
+            if (selectedItem != null) {
+                btnSave.setDisable(false);
+                txtStudentId.setText(selectedItem.getStudentId());
+                txtStudentNameId.setText(selectedItem.getStudentName());
+                txtStudentAddressId.setText(selectedItem.getStudentAddress());
+                if (selectedItem.getGender().equals("Male")) {
+                    maleBtnId.setSelected(true);
+                } else {
+                    femaleBtnId.setSelected(true);
+                }
+                txtStudentContactId.setText(selectedItem.getStudentContact());
+                dob.setValue(selectedItem.getDate().toLocalDate());
+                btnSave.setText("Update");
+                btnSave.setStyle("-fx-background-color:  #765827; -fx-background-radius: 10;");
+            }
+
+        } catch (RuntimeException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
     }
 
     private void refreshTable() {
@@ -111,6 +146,7 @@ public class StudentFormController implements Initializable {
         txtStudentContactId.clear();
         dob.setValue(null);
         maleBtnId.setSelected(false);
+        femaleBtnId.setSelected(false);
     }
 
     @FXML
@@ -130,6 +166,7 @@ public class StudentFormController implements Initializable {
                 new Alert(Alert.AlertType.CONFIRMATION, "Student saved!").show();
                 getAll();
                 clearAll();
+                generateNextId();
             } else {
                 new Alert(Alert.AlertType.ERROR, "student not saved!").show();
             }
@@ -139,6 +176,9 @@ public class StudentFormController implements Initializable {
                 new Alert(Alert.AlertType.CONFIRMATION,"Student updated!").show();
                 getAll();
                 clearAll();
+                generateNextId();
+                btnSave.setText("Update");
+                btnSave.setStyle("-fx-background-color:  #765827; -fx-background-radius: 10;");
             }else {
                 new Alert(Alert.AlertType.ERROR,"Student not updated!").show();
             }
@@ -218,7 +258,7 @@ public class StudentFormController implements Initializable {
             btnSave.setText("Update");
             btnSave.setStyle("-fx-background-color: #379237; -fx-background-radius: 10;");
         }else {
-            new Alert(Alert.AlertType.WARNING,"W").show();
+            new Alert(Alert.AlertType.WARNING,"Don't have this id").show();
         }
         txtSearchId.setText("");
     }

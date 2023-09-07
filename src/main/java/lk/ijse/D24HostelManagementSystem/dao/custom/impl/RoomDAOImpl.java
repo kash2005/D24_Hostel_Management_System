@@ -2,9 +2,12 @@ package lk.ijse.D24HostelManagementSystem.dao.custom.impl;
 
 import lk.ijse.D24HostelManagementSystem.dao.SupperDAO;
 import lk.ijse.D24HostelManagementSystem.dao.custom.RoomDAO;
+import lk.ijse.D24HostelManagementSystem.entity.Room;
+import lk.ijse.D24HostelManagementSystem.entity.Student;
 import lk.ijse.D24HostelManagementSystem.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 
 import java.util.List;
@@ -22,34 +25,76 @@ public class RoomDAOImpl implements RoomDAO {
         if (latestRoomId != null){
             transaction.commit();
             session.close();
-            int newRoomId = Integer.parseInt(latestRoomId.replace("R00-",""))+1;
-            return  String.format("R00-%03d",newRoomId);
+            int newRoomId = Integer.parseInt(latestRoomId.replace("RM-",""))+1;
+            return  String.format("RM-%04d",newRoomId);
         }
-        return "R00-001";
+        return "RM-0001";
     }
 
     @Override
-    public boolean save(Object entity) {
-        return false;
+    public boolean save(Room entity) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        session.persist(entity);
+        transaction.commit();
+        session.close();
+
+        return true;
     }
 
     @Override
-    public List getAll() {
-        return null;
+    public List<Room> getAll() {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        List<Room> roomArrayList = session.createNativeQuery("SELECT * FROM Room").addEntity(Room.class).list();
+
+        transaction.commit();
+        session.close();
+        return roomArrayList;
+    }
+
+
+    @Override
+    public boolean delete(Room entity) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        session.remove(entity);
+
+        transaction.commit();
+        session.close();
+
+        return true;
     }
 
     @Override
-    public boolean delete(String id) {
-        return false;
+    public Room search(String id) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        NativeQuery nativeQuery = session.createNativeQuery("SELECT * FROM room WHERE roomTypeId = :roomTypeId");
+        nativeQuery.setParameter("roomTypeId",id);
+
+        nativeQuery.addEntity(Room.class);
+        Room room = (Room) nativeQuery.uniqueResult();
+        transaction.commit();
+        session.close();
+        return room;
     }
 
     @Override
-    public Object search(String id) {
-        return null;
+    public boolean update(Room entity) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        session.update(entity);
+        transaction.commit();
+        session.close();
+
+        return true;
     }
 
-    @Override
-    public boolean update(Object entity) {
-        return false;
-    }
+
+
 }

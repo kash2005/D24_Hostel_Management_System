@@ -77,7 +77,7 @@
             <Font size="20.0" />
          </font>
       </JFXButton>
-      <TableView fx:id="studentTbl" layoutX="509.0" layoutY="203.0" prefHeight="511.0" prefWidth="549.0" style="-fx-border-color: #765827;">
+      <TableView fx:id="studentTbl" layoutX="509.0" layoutY="203.0" onMouseClicked="#studentTblOnMouseClicked" prefHeight="511.0" prefWidth="549.0" style="-fx-border-color: #765827;">
         <columns>
           <TableColumn fx:id="colStudentId" prefWidth="64.0" text="Id" />
           <TableColumn fx:id="colName" prefWidth="91.0" text="Name" />

@@ -66,7 +66,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public boolean delete(String id) {
+    public boolean delete(User entity) {
         return false;
     }
 
@@ -79,4 +79,6 @@ public class UserDAOImpl implements UserDAO {
     public boolean update(User entity) {
         return false;
     }
+
+
 }

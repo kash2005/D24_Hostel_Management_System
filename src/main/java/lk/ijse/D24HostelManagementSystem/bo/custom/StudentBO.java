@@ -13,7 +13,7 @@ public interface StudentBO extends SuperBO {
 
     public List<StudentDTO> getAllStudent();
 
-    public boolean deleteStudent(String studentId);
+    public boolean deleteStudent(StudentDTO studentDTO);
 
     StudentDTO searchStudent(String studentId);
 

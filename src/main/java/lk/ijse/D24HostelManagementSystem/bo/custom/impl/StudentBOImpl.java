@@ -36,8 +36,15 @@ public class StudentBOImpl implements StudentBO {
     }
 
     @Override
-    public boolean deleteStudent(String studentId) {
-        return studentDAO.delete(studentId);
+    public boolean deleteStudent(StudentDTO studentDTO) {
+        Student student = new Student();
+        student.setStudentId(studentDTO.getStudentId());
+        student.setStudentName(studentDTO.getStudentName());
+        student.setStudentAddress(studentDTO.getStudentAddress());
+        student.setStudentContact(studentDTO.getStudentContact());
+        student.setDate(studentDTO.getDate());
+        student.setGender(studentDTO.getGender());
+        return studentDAO.delete(student);
     }
 
     @Override

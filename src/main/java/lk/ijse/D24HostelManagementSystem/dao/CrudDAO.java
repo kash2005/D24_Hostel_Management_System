@@ -15,7 +15,7 @@ public interface CrudDAO<T> extends SupperDAO{
 
     public List<T> getAll();
 
-    public boolean delete(String id);
+    public boolean delete(T entity);
 
 
     public T search(String id);

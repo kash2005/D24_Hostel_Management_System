@@ -20,15 +20,15 @@
             <Font name="System Bold" size="36.0" />
          </font>
       </Label>
-      <TableView layoutX="519.0" layoutY="213.0" prefHeight="511.0" prefWidth="549.0" style="-fx-border-color: #765827;">
+      <TableView fx:id="tblRoomId" layoutX="519.0" layoutY="213.0" onMouseClicked="#roomTblOnMouseClicked" prefHeight="511.0" prefWidth="549.0" style="-fx-border-color: #765827;">
          <columns>
-            <TableColumn prefWidth="102.66668701171875" text="Id" />
-            <TableColumn prefWidth="135.33331298828125" text="Type" />
-            <TableColumn prefWidth="177.0" text="Key Money" />
-            <TableColumn prefWidth="134.0" text="Qty" />
+            <TableColumn fx:id="colId" prefWidth="102.66668701171875" text="Id" />
+            <TableColumn fx:id="colType" prefWidth="135.33331298828125" text="Type" />
+            <TableColumn fx:id="colKeyMoney" prefWidth="177.0" text="Key Money" />
+            <TableColumn fx:id="colQty" prefWidth="134.0" text="Qty" />
          </columns>
       </TableView>
-      <JFXTextField focusColor="#06acff" labelFloat="true" layoutX="784.0" layoutY="105.0" promptText="search" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
+      <JFXTextField fx:id="txtSearch" focusColor="#06acff" labelFloat="true" layoutX="784.0" layoutY="105.0" onAction="#txtSearchOnAction" promptText="search" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
          <font>
             <Font size="20.0" />
          </font>
