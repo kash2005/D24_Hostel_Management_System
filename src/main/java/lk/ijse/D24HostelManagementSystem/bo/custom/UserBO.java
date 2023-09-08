@@ -14,4 +14,8 @@ public interface UserBO extends SuperBO {
     public boolean saveUser(UserDTO userDTO);
 
     public List<UserDTO> getAllUser();
+
+    public boolean updateUser(UserDTO userDTO);
+
+    public boolean deleteUser(UserDTO userDTO);
 }
