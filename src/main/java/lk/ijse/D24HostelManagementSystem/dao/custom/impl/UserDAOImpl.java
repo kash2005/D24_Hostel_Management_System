@@ -1,6 +1,7 @@
 package lk.ijse.D24HostelManagementSystem.dao.custom.impl;
 
 import lk.ijse.D24HostelManagementSystem.dao.custom.UserDAO;
+import lk.ijse.D24HostelManagementSystem.entity.Room;
 import lk.ijse.D24HostelManagementSystem.entity.Student;
 import lk.ijse.D24HostelManagementSystem.entity.User;
 import lk.ijse.D24HostelManagementSystem.util.FactoryConfiguration;
@@ -62,7 +63,14 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public List<User> getAll() {
-        return null;
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        List<User> userArrayList = session.createNativeQuery("SELECT * FROM User").addEntity(User.class).list();
+
+        transaction.commit();
+        session.close();
+        return userArrayList;
     }
 
     @Override

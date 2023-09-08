@@ -118,7 +118,7 @@ public class StudentFormController implements Initializable {
                 txtStudentContactId.setText(selectedItem.getStudentContact());
                 dob.setValue(selectedItem.getDate().toLocalDate());
                 btnSave.setText("Update");
-                btnSave.setStyle("-fx-background-color:  #765827; -fx-background-radius: 10;");
+                btnSave.setStyle("-fx-background-color:  #379237; -fx-background-radius: 10;");
             }
 
         } catch (RuntimeException e) {
@@ -177,7 +177,7 @@ public class StudentFormController implements Initializable {
                 getAll();
                 clearAll();
                 generateNextId();
-                btnSave.setText("Update");
+                btnSave.setText("Save");
                 btnSave.setStyle("-fx-background-color:  #765827; -fx-background-radius: 10;");
             }else {
                 new Alert(Alert.AlertType.ERROR,"Student not updated!").show();

@@ -20,35 +20,36 @@
             <Font size="32.0" />
          </font>
       </Label>
-      <TableView layoutX="302.0" layoutY="159.0" prefHeight="315.0" prefWidth="395.0" style="-fx-border-color: #765827;">
+      <TableView fx:id="tblUser" layoutX="287.0" layoutY="159.0" onMouseClicked="#tblUserOnMouseClick" prefHeight="315.0" prefWidth="410.0" style="-fx-border-color: #765827;">
          <columns>
-            <TableColumn prefWidth="64.0" text="Id" />
-            <TableColumn prefWidth="91.0" text="Password" />
-            <TableColumn prefWidth="119.0" text="Password Hint" />
-            <TableColumn prefWidth="119.0" text="Email" />
+            <TableColumn fx:id="colId" prefWidth="61.0" text="Id" />
+            <TableColumn fx:id="colName" prefWidth="48.0" text="Name" />
+            <TableColumn fx:id="colPassword" prefWidth="92.0" text="Password" />
+            <TableColumn fx:id="colPasswordHint" prefWidth="95.0" text="PasswordHint" />
+            <TableColumn fx:id="colEmail" prefWidth="112.0" text="Email" />
          </columns>
       </TableView>
-      <JFXTextField focusColor="#06acff" labelFloat="true" layoutX="39.0" layoutY="180.0" promptText="User Id" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
+      <JFXTextField fx:id="userId" focusColor="#06acff" labelFloat="true" layoutX="39.0" layoutY="180.0" onAction="#userIdOnAction" promptText="User Id" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
          <font>
             <Font size="20.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#06acff" labelFloat="true" layoutX="39.0" layoutY="320.0" promptText="Password" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
+      <JFXTextField fx:id="passwordId" focusColor="#06acff" labelFloat="true" layoutX="39.0" layoutY="320.0" onAction="#passwordOnAction" promptText="Password" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
          <font>
             <Font size="20.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#06acff" labelFloat="true" layoutX="38.0" layoutY="386.0" promptText="Password Hint" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
+      <JFXTextField fx:id="passwordHint" focusColor="#06acff" labelFloat="true" layoutX="38.0" layoutY="386.0" onAction="#passwordHintOnAction" promptText="Password Hint" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
          <font>
             <Font size="20.0" />
          </font>
       </JFXTextField>
-      <JFXButton layoutX="38.0" layoutY="531.0" prefHeight="44.0" prefWidth="145.0" style="-fx-background-color: #765827; -fx-background-radius: 10;" text="Save" textFill="WHITE">
+      <JFXButton fx:id="btnSave" layoutX="38.0" layoutY="531.0" onAction="#btnSaveOnAction" prefHeight="44.0" prefWidth="145.0" style="-fx-background-color: #765827; -fx-background-radius: 10;" text="Save" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="205.0" layoutY="531.0" prefHeight="44.0" prefWidth="145.0" style="-fx-background-color: red mat; -fx-background-radius: 10;" text="Delete" textFill="WHITE">
+      <JFXButton fx:id="btnDelete" layoutX="205.0" layoutY="531.0" onAction="#btnDeleteOnAction" prefHeight="44.0" prefWidth="145.0" style="-fx-background-color: red mat; -fx-background-radius: 10;" text="Delete" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
@@ -58,12 +59,12 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <JFXTextField focusColor="#06acff" labelFloat="true" layoutX="38.0" layoutY="463.0" promptText="Email" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
+      <JFXTextField fx:id="emaillId" focusColor="#06acff" labelFloat="true" layoutX="38.0" layoutY="463.0" onAction="#emailOnAction" promptText="Email" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
          <font>
             <Font size="20.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#06acff" labelFloat="true" layoutX="42.0" layoutY="257.0" promptText="User Name" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
+      <JFXTextField fx:id="userNameId" focusColor="#06acff" labelFloat="true" layoutX="42.0" layoutY="257.0" onAction="#userNameOnAction" promptText="User Name" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
          <font>
             <Font size="20.0" />
          </font>
