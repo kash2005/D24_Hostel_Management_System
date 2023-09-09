@@ -17,4 +17,6 @@ public interface RoomBO extends SuperBO {
     public boolean deleteRoom(RoomDTO roomDTO);
 
     public RoomDTO searchRoom(String roomId);
+
+    public List<String> getCodes();
 }

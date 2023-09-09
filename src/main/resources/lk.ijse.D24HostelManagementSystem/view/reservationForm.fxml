@@ -21,14 +21,13 @@
             <Font name="System Bold" size="36.0" />
          </font>
       </Label>
-      <TableView layoutX="519.0" layoutY="213.0" prefHeight="511.0" prefWidth="549.0" style="-fx-border-color: #765827;">
+      <TableView fx:id="tblReservationId" layoutX="519.0" layoutY="213.0" prefHeight="228.0" prefWidth="549.0" style="-fx-border-color: #765827;">
          <columns>
-            <TableColumn prefWidth="64.0" text="R Id" />
-            <TableColumn prefWidth="91.0" text="S Id" />
-            <TableColumn prefWidth="111.0" text="Room Type" />
-            <TableColumn prefWidth="95.0" text="Qty" />
-            <TableColumn prefWidth="97.0" text="B Date" />
-            <TableColumn prefWidth="90.0" text="Price " />
+            <TableColumn fx:id="colResId" prefWidth="120.0" text="Reservation Id" />
+            <TableColumn fx:id="colDateId" prefWidth="82.0" text="Date" />
+            <TableColumn fx:id="colStudentId" prefWidth="130.3333740234375" text="Student Id" />
+            <TableColumn fx:id="colRoomId" prefWidth="112.6666259765625" text="Room Id" />
+            <TableColumn fx:id="colStatusid" prefWidth="103.33331298828125" text="Status" />
          </columns>
       </TableView>
       <JFXTextField focusColor="#06acff" labelFloat="true" layoutX="784.0" layoutY="105.0" promptText="search" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
@@ -59,36 +58,54 @@
                   <Image url="@../image/icons8-reservation-100.png" />
                </image>
             </ImageView>
-            <JFXTextField focusColor="#06acff" labelFloat="true" layoutX="15.0" layoutY="76.0" promptText="Reservation Id" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
+            <JFXTextField fx:id="reservationId" focusColor="#06acff" labelFloat="true" layoutX="15.0" layoutY="53.0" promptText="Reservation Id" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
                <font>
                   <Font size="20.0" />
                </font>
             </JFXTextField>
-            <JFXTextField focusColor="#06acff" labelFloat="true" layoutX="14.0" layoutY="329.0" promptText="Available Qty" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
+            <ComboBox fx:id="studentId" layoutX="16.0" layoutY="209.0" prefHeight="52.0" prefWidth="222.0" promptText="Student Id" style="-fx-background-color: #FBF7F3; -fx-border-color: #765827;" />
+            <DatePicker fx:id="booking" layoutX="18.0" layoutY="128.0" prefHeight="48.0" prefWidth="222.0" promptText="Booking Date" style="-fx-background-color: #FBF7F3;" />
+            <JFXTextField fx:id="roomTypeId" focusColor="#06acff" labelFloat="true" layoutX="15.0" layoutY="449.0" promptText="Room Type " style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
                <font>
                   <Font size="20.0" />
                </font>
             </JFXTextField>
-            <ComboBox layoutX="16.0" layoutY="160.0" prefHeight="52.0" prefWidth="222.0" promptText="Student Id" style="-fx-background-color: #FBF7F3; -fx-border-color: #765827;" />
-            <ComboBox layoutX="17.0" layoutY="248.0" prefHeight="52.0" prefWidth="222.0" promptText="Room Type" style="-fx-background-color: #FBF7F3; -fx-border-color: #765827;" />
-            <DatePicker layoutX="18.0" layoutY="424.0" prefHeight="40.0" prefWidth="222.0" promptText="Booking Date" style="-fx-background-color: #FBF7F3;" />
-            <JFXTextField focusColor="#06acff" labelFloat="true" layoutX="20.0" layoutY="499.0" promptText="Price Per Room" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
+            <JFXTextField fx:id="pricePerRoomId" focusColor="#06acff" labelFloat="true" layoutX="17.0" layoutY="523.0" promptText="Price per room" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </JFXTextField>
+            <ComboBox fx:id="roomId" layoutX="17.0" layoutY="374.0" onAction="#roomIdOnAction" prefHeight="52.0" prefWidth="222.0" promptText="Room Id" style="-fx-background-color: #FBF7F3; -fx-border-color: #765827;" />
+            <JFXTextField fx:id="AvailableQtyId" focusColor="#06acff" labelFloat="true" layoutX="14.0" layoutY="295.0" promptText="Available qty" style="-fx-prompt-text-fill: #765827;" unFocusColor="#765827">
                <font>
                   <Font size="20.0" />
                </font>
             </JFXTextField>
          </children>
       </Pane>
-      <JFXButton layoutX="294.0" layoutY="385.0" prefHeight="44.0" prefWidth="145.0" style="-fx-background-color: #765827; -fx-background-radius: 10;" text="Save" textFill="WHITE">
+      <JFXButton fx:id="btnPaid" layoutX="294.0" layoutY="359.0" onAction="#btnPaidOnAction" prefHeight="44.0" prefWidth="145.0" style="-fx-background-color: #765827; -fx-background-radius: 10;" text="Paid" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="294.0" layoutY="476.0" prefHeight="44.0" prefWidth="145.0" style="-fx-background-color: red mat; -fx-background-radius: 10;" text="Delete" textFill="WHITE">
+      <JFXButton fx:id="btnDelete" layoutX="294.0" layoutY="523.0" onAction="#btnDeleteOnAction" prefHeight="44.0" prefWidth="145.0" style="-fx-background-color: red mat; -fx-background-radius: 10;" text="Delete" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </JFXButton>
       <Pane layoutX="-212.0" layoutY="60.0" prefHeight="740.0" prefWidth="232.0" style="-fx-background-color: #FBF7F3;" />
+      <TableView fx:id="tblRoomId" layoutX="519.0" layoutY="488.0" prefHeight="228.0" prefWidth="549.0" style="-fx-border-color: #765827;">
+         <columns>
+            <TableColumn fx:id="coltblRoomId" prefWidth="120.0" text="Room Id" />
+            <TableColumn fx:id="colRoomType" prefWidth="146.0" text="Room Type" />
+            <TableColumn fx:id="colRoomKeyMoney" prefWidth="146.0" text="Key Money" />
+            <TableColumn fx:id="colRoomQty" prefWidth="135.33331298828125" text="Qty" />
+         </columns>
+      </TableView>
+      <JFXButton fx:id="btnBooking" layoutX="295.0" layoutY="440.0" onAction="#btnBookingOnAction" prefHeight="44.0" prefWidth="145.0" style="-fx-background-color: #379237; -fx-background-radius: 10;" text="Booking" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

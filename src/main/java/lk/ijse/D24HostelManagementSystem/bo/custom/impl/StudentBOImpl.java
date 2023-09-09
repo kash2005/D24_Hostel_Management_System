@@ -5,6 +5,7 @@ import lk.ijse.D24HostelManagementSystem.bo.custom.StudentBO;
 import lk.ijse.D24HostelManagementSystem.dao.DAOFactory;
 import lk.ijse.D24HostelManagementSystem.dao.custom.StudentDAO;
 import lk.ijse.D24HostelManagementSystem.dto.StudentDTO;
+import lk.ijse.D24HostelManagementSystem.entity.Room;
 import lk.ijse.D24HostelManagementSystem.entity.Student;
 
 import java.util.ArrayList;
@@ -56,6 +57,27 @@ public class StudentBOImpl implements StudentBO {
     @Override
     public boolean updateStudent(StudentDTO studentDTO) {
         return studentDAO.update(new Student(studentDTO.getStudentId(),studentDTO.getStudentName(),studentDTO.getStudentAddress(),studentDTO.getStudentContact(),studentDTO.getDate(),studentDTO.getGender()));
+    }
+
+    @Override
+    public List<StudentDTO> getUnpaidStudents() {
+//        List<StudentDTO> studentDTOArrayList = new ArrayList<>();
+//        List<Student> studentArrayList = studentDAO.unPaidStudents();
+//        for (Student student:studentArrayList) {
+//            studentDTOArrayList.add(new StudentDTO(student.getStudentId(),student.getStudentName(), student.getStudentAddress(), student.getStudentContact(),student.getDate(),student.getGender()));
+//        }
+//        return studentDTOArrayList;
+        return null;
+    }
+
+    @Override
+    public List<String> getCodes() {
+        List<Student> students = studentDAO.getAll();
+        List<String> studentId = new ArrayList<>();
+        for (Student student: students) {
+            studentId.add(student.getStudentId());
+        }
+        return studentId;
     }
 
 

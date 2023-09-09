@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.chart.BarChart?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Glow?>
@@ -217,28 +214,20 @@
             <Font size="42.0" />
          </font>
       </Label>
-      <Label layoutX="512.0" layoutY="519.0" prefHeight="34.0" prefWidth="121.0" text="Reminder" textFill="#765827">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
       <Label layoutX="1.0" layoutY="23.0" opacity="0.91" prefHeight="36.0" prefWidth="545.0" text="Welcome To D24 Hostel Management System" textFill="#765827">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <BarChart layoutX="512.0" layoutY="584.0" prefHeight="174.0" prefWidth="305.0">
-        <xAxis>
-          <CategoryAxis side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis side="LEFT" />
-        </yAxis>
-      </BarChart>
       <Label layoutX="1017.0" layoutY="759.0" opacity="0.59" prefHeight="30.0" prefWidth="53.0" text="\@2023" textFill="#765827">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
+      <ImageView fitHeight="195.0" fitWidth="243.0" layoutX="541.0" layoutY="543.0" opacity="0.52" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@../image/icons8-online-booking-64.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

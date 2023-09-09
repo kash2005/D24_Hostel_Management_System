@@ -19,4 +19,8 @@ public interface StudentBO extends SuperBO {
 
 
     public boolean updateStudent(StudentDTO studentDTO);
+
+    public List<StudentDTO> getUnpaidStudents();
+
+    public List<String> getCodes();
 }

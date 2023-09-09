@@ -69,4 +69,14 @@ public class RoomBOImpl implements RoomBO {
         Room room = roomDAO.search(roomId);
         return new RoomDTO(room.getRoomTypeId(),room.getType(),room.getKeyMoney(),room.getQty());
     }
+
+    @Override
+    public List<String> getCodes() {
+        List<Room> reservations = roomDAO.getAll();
+        List<String> roomId = new ArrayList<>();
+        for (Room room: reservations) {
+            roomId.add(room.getRoomTypeId());
+        }
+        return roomId;
+    }
 }

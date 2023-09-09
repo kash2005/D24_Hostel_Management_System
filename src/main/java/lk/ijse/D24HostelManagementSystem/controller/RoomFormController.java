@@ -66,22 +66,17 @@ public class RoomFormController implements Initializable {
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
-//        RoomTM roomTM = tblRoomId.getSelectionModel().getSelectedItem();
         RoomDTO roomDTO = new RoomDTO();
         roomDTO.setRoomTypeId(txtRoomId.getText());
         roomDTO.setType(comboTypeId.getValue());
         roomDTO.setKeyMoney(Double.valueOf(txtKeyMoneyId.getText()));
         roomDTO.setQty(txtQtyId.getLength());
-//        if (roomTM != null){
             roomBO.deleteRoom(roomDTO);
             new Alert(Alert.AlertType.INFORMATION, "Room Deleted!").show();
             clearAll();
             refreshTable();
             btnSave.setText("Save");
             btnSave.setStyle("-fx-background-color:  #765827; -fx-background-radius: 10;");
-//        }else {
-//            new Alert(Alert.AlertType.ERROR, "Select room first!");
-//        }
     }
 
     @FXML
