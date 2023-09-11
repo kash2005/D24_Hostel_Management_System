@@ -9,6 +9,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import lk.ijse.D24HostelManagementSystem.bo.BOFactory;
 import lk.ijse.D24HostelManagementSystem.bo.custom.ReservationBO;
 import lk.ijse.D24HostelManagementSystem.bo.custom.RoomBO;
@@ -21,6 +23,7 @@ import lk.ijse.D24HostelManagementSystem.tm.RoomTM;
 
 import java.net.URL;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -63,7 +66,7 @@ public class ReservationFormController implements Initializable {
     private ComboBox<String> roomId;
 
     @FXML
-    private JFXTextField availableQtyId;
+    private JFXTextField AvailableQtyId;
 
     @FXML
     private JFXButton btnPaid;
@@ -110,15 +113,25 @@ public class ReservationFormController implements Initializable {
             StudentDTO studentDto = studentBO.searchStudent(studentId.getValue());
             reservationDto.setStudent(studentDto);
 
-            RoomDTO dto = roomBO.searchRoom((String) roomId.getValue());
+            RoomDTO dto = roomBO.searchRoom(roomId.getValue());
             dto.setQty(dto.getQty() - 1);
             reservationDto.setRoom(dto);
 
             reservationBO.saveReservation(reservationDto);
+            reservationGetAll();
 
+            /*Stage stage = (Stage) root.getScene().getWindow();
+            stage.setAlwaysOnTop(false);*/
             new Alert(Alert.AlertType.INFORMATION, "Added!").showAndWait();
+            /*stage.setAlwaysOnTop(true);
+            stage.close();*/
+            /* }*/
         } catch (RuntimeException exception) {
+            /*Stage stage = (Stage) root.getScene().getWindow();
+            stage.setAlwaysOnTop(false);
             new Alert(Alert.AlertType.ERROR, exception.getMessage()).showAndWait();
+            stage.setAlwaysOnTop(false);*/
+            exception.printStackTrace();
         }
     }
 
@@ -128,8 +141,8 @@ public class ReservationFormController implements Initializable {
             ReservationTM reservationTm = tblReservationId.getSelectionModel().getSelectedItem();
             if (reservationTm != null) {
                 btnDelete.setDisable(false);
-                reservationBO.deleteReservation(reservationTm.getReservationId());
-                new Alert(Alert.AlertType.ERROR, "Reservation Deleted : " + reservationTm.getReservationId()).show();
+                reservationBO.deleteReservation(reservationTm.getRes_id());
+                new Alert(Alert.AlertType.ERROR, "Reservation Deleted : " + reservationTm.getRes_id()).show();
                 refreshTable();
                 reservationGetAll();
             } else {
@@ -145,7 +158,7 @@ public class ReservationFormController implements Initializable {
         reservationId.clear();
         booking.setValue(null);
         studentId.setValue(null);
-        availableQtyId.clear();
+        AvailableQtyId.clear();
         roomTypeId.clear();
         roomId.setValue(null);
         pricePerRoomId.clear();
@@ -166,7 +179,7 @@ public class ReservationFormController implements Initializable {
 
     @FXML
     void btnPaidOnAction(ActionEvent event) {
-
+        saveReservation("paid");
     }
 
     @Override
@@ -199,11 +212,11 @@ public class ReservationFormController implements Initializable {
     }
 
     private void reservationSetCellValueFactory() {
-        colResId.setCellValueFactory(new PropertyValueFactory<>("reservationId"));
-        colDateId.setCellValueFactory(new PropertyValueFactory<>("booking"));
+        colResId.setCellValueFactory(new PropertyValueFactory<>("res_id"));
+        colDateId.setCellValueFactory(new PropertyValueFactory<>("date"));
         colStatusid.setCellValueFactory(new PropertyValueFactory<>("status"));
-        colStudentId.setCellValueFactory(new PropertyValueFactory<>("student"));
-        colRoomId.setCellValueFactory(new PropertyValueFactory<>("room"));
+        colStudentId.setCellValueFactory(new PropertyValueFactory<>("student_id"));
+        colRoomId.setCellValueFactory(new PropertyValueFactory<>("room_id"));
     }
 
     private void roomSetCellValueFactory() {
@@ -220,14 +233,14 @@ public class ReservationFormController implements Initializable {
 
     private void reservationGetAll() {
         ObservableList<ReservationTM> observableList = FXCollections.observableArrayList();
-        List<ReservsionDTO> reservsionDTOS = reservationBO.getAllReservation();
-        for (ReservsionDTO reservsionDTO : reservsionDTOS) {
+        List<ReservsionDTO> reservationDTOList = reservationBO.getAllReservation();
+        for (ReservsionDTO reservationDTO : reservationDTOList) {
             observableList.add(new ReservationTM(
-                            reservsionDTO.getResId(),
-                            reservsionDTO.getDate(),
-                            reservsionDTO.getStatus(),
-                            reservsionDTO.getStudent(),
-                            reservsionDTO.getRoom()
+                            reservationDTO.getResId(),
+                            reservationDTO.getDate(),
+                            reservationDTO.getStatus(),
+                            reservationDTO.getStudent().getStudentId(),
+                            reservationDTO.getRoom().getRoomTypeId()
                     )
             );
         }
@@ -254,10 +267,10 @@ public class ReservationFormController implements Initializable {
     void roomIdOnAction(ActionEvent event) {
         try {
             String selectedItem = roomId.getSelectionModel().getSelectedItem();
-            if (selectedItem != null) {
+            if (!(selectedItem == null || selectedItem.equals("") || selectedItem.equals(" "))) {
                 RoomDTO room = roomBO.searchRoom(selectedItem);
                 pricePerRoomId.setText(String.valueOf(room.getKeyMoney()));
-                availableQtyId.setText(String.valueOf(room.getQty()));
+                AvailableQtyId.setText(String.valueOf(room.getQty()));
                 roomTypeId.setText(room.getType());
 
                 if (room.getQty() != 0) {
@@ -270,7 +283,7 @@ public class ReservationFormController implements Initializable {
                 }
             } else {
                 pricePerRoomId.setText("0");
-                availableQtyId.setText("0");
+                AvailableQtyId.setText("0");
             }
         } catch (RuntimeException exception) {
             exception.printStackTrace();

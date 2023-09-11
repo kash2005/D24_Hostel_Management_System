@@ -32,7 +32,14 @@ public class ReservationDAOImpl implements ReservationDAO {
 
     @Override
     public boolean save(Reservation entity) {
-        return false;
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        session.save(entity);
+        transaction.commit();
+        session.close();
+
+        return true;
     }
 
     @Override

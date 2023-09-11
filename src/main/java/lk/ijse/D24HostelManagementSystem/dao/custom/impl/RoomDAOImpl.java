@@ -73,7 +73,7 @@ public class RoomDAOImpl implements RoomDAO {
     public Room search(String id) {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        NativeQuery nativeQuery = session.createNativeQuery("SELECT * FROM room WHERE roomTypeId = :roomTypeId");
+        NativeQuery nativeQuery = session.createNativeQuery("SELECT * FROM Room WHERE roomTypeId = :roomTypeId");
         nativeQuery.setParameter("roomTypeId",id);
 
         nativeQuery.addEntity(Room.class);

@@ -16,9 +16,9 @@ import java.util.Date;
 @Data
 @ToString
 public class ReservationTM {
-    private String reservationId;
-    private Date booking;
+    private String res_id;
+    private Date date;
     private String status;
-    private StudentDTO student;
-    private RoomDTO room;
+    private String student_id;
+    private String room_id;
 }

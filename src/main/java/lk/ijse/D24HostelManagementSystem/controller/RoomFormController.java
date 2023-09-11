@@ -70,7 +70,7 @@ public class RoomFormController implements Initializable {
         roomDTO.setRoomTypeId(txtRoomId.getText());
         roomDTO.setType(comboTypeId.getValue());
         roomDTO.setKeyMoney(Double.valueOf(txtKeyMoneyId.getText()));
-        roomDTO.setQty(txtQtyId.getLength());
+        roomDTO.setQty(Integer.valueOf(txtQtyId.getText()));
             roomBO.deleteRoom(roomDTO);
             new Alert(Alert.AlertType.INFORMATION, "Room Deleted!").show();
             clearAll();
@@ -85,7 +85,7 @@ public class RoomFormController implements Initializable {
         roomDTO.setRoomTypeId(txtRoomId.getText());
         roomDTO.setType(comboTypeId.getValue());
         roomDTO.setKeyMoney(Double.valueOf(txtKeyMoneyId.getText()));
-        roomDTO.setQty(txtQtyId.getLength());
+        roomDTO.setQty(Integer.valueOf(txtQtyId.getText()));
 
         if (btnSave.getText().equals("Save")){
             boolean isSaved = roomBO.saveRoom(roomDTO);
@@ -227,7 +227,7 @@ public class RoomFormController implements Initializable {
 
     private void fillDate(RoomDTO roomDTO) {
         txtRoomId.setText(roomDTO.getRoomTypeId());
-        comboTypeId.setValue(roomDTO.getRoomTypeId());
+        comboTypeId.setValue(roomDTO.getType());
         txtKeyMoneyId.setText(String.valueOf(roomDTO.getKeyMoney()));
         txtQtyId.setText(String.valueOf(roomDTO.getQty()));
     }
